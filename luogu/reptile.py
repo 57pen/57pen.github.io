@@ -150,7 +150,7 @@ def total():
         output_text.see(tk.END)
         print("共计{}条结果".format(num[0]))
         for i in range(1,num[1]+1):
-            url = baseurl + "/list?" + "difficulty=" + Dif + "&tag=" + Tags + "&page=" + str(i)
+            url = baseurl + "/list?" + "difficulty=" + Dif + "&tag=" + Tags + "&keyword=" + keyword + "&page=" + str(i)
             html = askURL(url)
             No = getNo(html)
             Name = getName(html)
@@ -196,6 +196,9 @@ def total():
                 output_text1.see(tk.END)
                 cnt += 1
                 time.sleep(random.randint(0, 1))
+        output_text1.insert(tk.END, '爬取完毕')
+        output_text1.update()
+        output_text1.see(tk.END)
 
     window = tk.Tk()
     window.title("爬取--洛谷习题")
